@@ -16,7 +16,7 @@ module.exports = {
         } else {
             const embed = new Discord.MessageEmbed()
             .setTitle('돈 정보')
-            .setDescription(`지금 ${await client.db.findOne({_id: message.author.id}).money}원을 갖고 있어요.`)
+            .setDescription(`지금 ${(await client.db.findOne({_id: message.author.id})).money}원을 갖고 있어요.`)
             .setColor('RANDOM')
             .setFooter(message.author.tag, message.author.displayAvatarURL())
             .setTimestamp()
