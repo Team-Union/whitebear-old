@@ -5,7 +5,7 @@ module.exports = {
     description: '1시간에 한번씩 돈을 받아요.',
     usage: '화베야 돈받기',
     run: async (client, message, args, ops) => {
-        if (!(await client.db.fineOne({_id: message.author.id}))) {
+        if (!(await client.db.findOne({_id: message.author.id}))) {
             const embed = new Discord.MessageEmbed()
             .setTitle('화베의 돈 서비스에 가입되어있지 않아요.')
             .setDescription('`화베야 가입`을 이용해서 먼저 가입해주세요!')
