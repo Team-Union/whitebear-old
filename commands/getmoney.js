@@ -14,10 +14,10 @@ module.exports = {
             .setTimestamp()
             message.channel.send(embed);
         } else {
-            if (await client.db.fineOne({_id: message.author.id}).lastGotMoney && new Date() - 1 + 1 - (await client.db.fineOne({_id: message.author.id})).lastGotMoney < 3600000) {
+            if (await client.db.finㅇOne({_id: message.author.id}).lastGotMoney && new Date() - 1 + 1 - (await client.db.findOne({_id: message.author.id})).lastGotMoney < 3600000) {
                 const embed = new Discord.MessageEmbed()
                 .setTitle('1시간 전에 이미 돈을 받았어요')
-                .setDescription(`${(3600000 - (new Date() - 1 + 1 - (await client.db.fineOne({_id: message.author.id})).lastGotMoney)) / 1000|0}초 후에 다시 시도해 주세요!`)
+                .setDescription(`${(3600000 - (new Date() - 1 + 1 - (await client.db.findOne({_id: message.author.id})).lastGotMoney)) / 1000|0}초 후에 다시 시도해 주세요!`)
                 .setColor('RANDOM')
                 .setFooter(message.author.tag, message.author.displayAvatarURL())
                 .setTimestamp()
