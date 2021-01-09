@@ -26,7 +26,7 @@ module.exports = {
                 await client.db.updateOne({_id: message.author.id}, {
                     $set: {
                         lastGotMoney: new Date() - 1 + 1,
-                        money: (await client.db.findOne({_id: message.author.id}).money + 10000)
+                        money: ((await client.db.findOne({_id: message.author.id})).money + 10000)
                     }
                 });
                 const embed = new Discord.MessageEmbed()
